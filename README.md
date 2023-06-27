@@ -1,5 +1,17 @@
-# For the Impatient Expert: Mamba + JupyterLab on Linux
-These instructions are not intended for beginners!
+# Mamba + JupyterLab on Linux
+These instructions are not intended for beginners! 
+
+Features of this setup are
+1. mamba is used to manage both packages and environments (it is a dropin replacement for conda, just much faste)
+1. The only channel configured for package downloads is conda-forge
+1. Mamba bash autocompletion is still very limited (June 2023), so we just use standard Bash autocompletion
+1. JupyterLab is only installed into the base environment
+1. To enable the base environment to find any other environments, two things are necessary
+    1. Package nb_conda_kernels *must* be installed in the base environment
+    1. Package ipykernel *must* be installed in each of the other (non-base) environments
+1. The base environment also includes support for plotly-express (which must be installed in the non-base environments)
+
+Create the setup with this instructions
 * Download mamba `wget "https://github.com/conda-forge/miniforge/releases/latest/download/Mambaforge-$(uname)-$(uname -m).sh -P ~/Downloads/"`
 * Install mamba `bash ~/Downloads/Mambaforge-$(uname)-$(uname -m).sh` (yes to conda init)
 * `source ~/.bashrc` <<-- **IMPORTANT**
